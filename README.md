@@ -138,7 +138,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 👤 Author
 
 Made with 🖤 by **[Your Name]**  
-[GitHub](https://github.com/shriyanscoded) · [LinkedIn](linkedin.com/in/shriyans-sahoo-372300377)
+[GitHub](https://github.com/shriyanscoded) · [LinkedIn](https://linkedin.com/in/shriyans-sahoo-372300377)
 
 ---
 
