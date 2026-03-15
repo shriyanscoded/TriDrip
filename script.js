@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let mixer = null;
     let modelLoaded = false;
 
-    loader.load('assets/sample.glb', (gltf) => {
+    loader.load('/assets/sample.glb', (gltf) => {
         const model = gltf.scene;
 
         const box = new THREE.Box3().setFromObject(model);
@@ -161,7 +161,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(floatGroup2);
     let model2Loaded = false;
 
-    loader.load('assets/hoodie.glb', (gltf) => {
+    loader.load('/assets/hoodie.glb', (gltf) => {
         const model2 = gltf.scene;
         const box = new THREE.Box3().setFromObject(model2);
         const center = box.getCenter(new THREE.Vector3());
@@ -195,7 +195,7 @@ document.addEventListener('DOMContentLoaded', () => {
     scene.add(floatGroup3);
     let model3Loaded = false;
 
-    loader.load('assets/pant.glb', (gltf) => {
+    loader.load('/assets/pant.glb', (gltf) => {
         const model3 = gltf.scene;
         const box = new THREE.Box3().setFromObject(model3);
         const center = box.getCenter(new THREE.Vector3());
