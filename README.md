@@ -16,7 +16,7 @@
 
 ## 🖥️ Live Preview
 
-> `localhost:5173` (local dev) · [Deploy link coming soon](#)
+[TriDrip](https://tridrip.netlify.app/)
 
 ---
 
