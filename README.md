@@ -2,7 +2,9 @@
 
 > The ultimate platform to stitch your perfect outfit, discover curated streetwear, and master your personal style.
 
-![Tridrip Banner](./assets/banner.png)
+![Tridrip Landing Page](./assets/landing.png)
+![Tridrip Landing Page](./assets/landing2.png)
+![Tridrip Landing Page](./assets/landing3.png)
 
 ---
 
@@ -136,7 +138,7 @@ Pull requests are welcome! For major changes, please open an issue first to disc
 ## 👤 Author
 
 Made with 🖤 by **[Your Name]**  
-[GitHub](https://github.com/your-username) · [Twitter/X](https://twitter.com/your-handle)
+[GitHub](https://github.com/shriyanscoded) · [LinkedIn](linkedin.com/in/shriyans-sahoo-372300377)
 
 ---
 
