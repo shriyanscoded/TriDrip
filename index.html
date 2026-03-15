@@ -1,0 +1,190 @@
+<!--
+  ============================================================
+  FILE: index.html
+  DESCRIPTION: Tridrip Landing Page — the public-facing hero
+    page with a full-screen Three.js 3D model background,
+    scroll-linked animations, and cinematic spotlight effects.
+
+  DEPENDENCIES:
+    - Tailwind CSS (CDN)
+    - Lucide Icons (CDN)
+    - Three.js (CDN via import map)
+    - css/style.css (custom styles)
+    - js/script.js (3D canvas logic)
+    - assets/sample.glb, hoodie.glb, pant.glb (3D models)
+
+  BACKEND PLACEHOLDERS:
+    - Login/Sign-up → currently links to home.html
+  ============================================================
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tridrip - Elevate Your Aesthetic</title>
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css">
+  
+  <!-- Import Map for Three.js -->
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+  </script>
+</head>
+<body class="relative min-h-screen bg-[#0a0a0a] text-stone-100 font-sans noise-bg selection:bg-[#CCFF00] selection:text-black m-0 p-0 overflow-x-hidden">
+
+  <!-- ── Fixed 3D Background Layer ── -->
+  <div class="fixed inset-0 pointer-events-none z-0" id="canvas-container">
+    <!-- 3D Canvas injected here by script.js -->
+  </div>
+
+  <!-- 01. NAVIGATION -->
+  <nav class="fixed top-0 left-0 w-full z-50 bg-black/60 backdrop-blur-md border-b border-white/10 flex items-center justify-between px-6 py-4">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 bg-black rounded-full flex items-center justify-center">
+        <i data-lucide="globe" class="w-6 h-6 text-white"></i>
+      </div>
+      <span class="font-black text-xl tracking-tight text-white">Tridrip</span>
+    </div>
+
+    <!-- Navigation Links -->
+    <div class="hidden md:flex items-center gap-8 font-medium text-white/60">
+      <a href="#" class="hover:text-white transition-colors">Catalog</a>
+      <a href="#" class="hover:text-white transition-colors">Glow-Up Academy</a>
+      <a href="#" class="hover:text-white transition-colors cursor-pointer">Events</a>
+      <a href="#" class="hover:text-white transition-colors">About Us</a>
+    </div>
+
+    <div class="flex items-center gap-4">
+      <div
+        aria-label="User Login Button"
+        tabindex="0"
+        role="button"
+        class="user-profile"
+        id="login-btn"
+      >
+        <div class="user-profile-inner">
+          <svg
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+          >
+            <g data-name="Layer 2" id="Layer_2">
+              <path
+                d="m15.626 11.769a6 6 0 1 0 -7.252 0 9.008 9.008 0 0 0 -5.374 8.231 3 3 0 0 0 3 3h12a3 3 0 0 0 3-3 9.008 9.008 0 0 0 -5.374-8.231zm-7.626-4.769a4 4 0 1 1 4 4 4 4 0 0 1 -4-4zm10 14h-12a1 1 0 0 1 -1-1 7 7 0 0 1 14 0 1 1 0 0 1 -1 1z"
+              ></path>
+            </g>
+          </svg>
+          <p>Sign Up / Log In</p>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- 02. HERO SECTION -->
+  <section class="relative w-full min-h-[100vh] flex flex-col items-center justify-center z-10 pt-48 pb-16">
+    <div class="w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between relative px-8 md:px-16">
+      <!-- Left Content -->
+      <div class="w-full md:w-1/2 flex flex-col items-start gap-8 py-12 md:py-0">
+        <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.88] text-white">
+          ELEVATE <br />
+          YOUR <br />
+          <span class="text-white">AESTHETIC.</span>
+        </h1>
+
+        <p class="text-lg text-white/50 font-medium max-w-md leading-relaxed">
+          The ultimate platform to stitch your perfect outfit, discover curated streetwear, and master your personal style.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 mt-2 w-full sm:w-auto">
+          <button class="drip-btn" id="start-drip-btn">
+            <span class="drip-icon">
+              <svg viewBox="0 0 175 80" width="38" height="38">
+                <rect width="80" height="15" fill="#2e8eff" rx="10" />
+                <rect y="30" width="80" height="15" fill="#2e8eff" rx="10" />
+                <rect y="60" width="80" height="15" fill="#2e8eff" rx="10" />
+              </svg>
+            </span>
+            <span class="drip-text">START YOUR DRIP</span>
+          </button>
+
+          <button
+            class="text-white/70 font-bold border border-white/15 text-base px-8 py-4 rounded-xl hover:bg-white/8 hover:border-white/30 hover:text-white transition-all flex items-center justify-center backdrop-blur-sm"
+            style="background: rgba(255,255,255,0.04)"
+          >
+            Explore Catalog
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 02.5 SCROLL REVEAL FEATURES -->
+  <section class="relative w-full py-32 md:py-48 flex items-center justify-end px-8 md:px-24 z-10 pointer-events-none">
+    <div class="w-full max-w-7xl mx-auto flex justify-end">
+      <div class="w-full md:w-1/2 flex flex-col items-start gap-6 pointer-events-auto md:pr-16">
+        <h2 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-4">
+          SEAMLESS <br /> <span class="text-[#2e8eff]">INTEGRATION.</span>
+        </h2>
+        <p class="text-xl text-white/50 font-medium leading-relaxed max-w-md">
+          Experience unparalleled 3D fluidity. Rotate, tilt, and observe the fabric physics under our dynamic blue spotlight. Our custom rendering engine makes streetwear come to life.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 w-full">
+          <div class="bg-[#111] border border-white/10 rounded-2xl p-6 hover:border-white/30 transition-all flex-1">
+            <h3 class="text-white font-bold text-lg mb-2">High Fidelity</h3>
+            <p class="text-white/40 text-sm">Real-time shading and custom lighting.</p>
+          </div>
+          <div class="bg-[#111] border border-white/10 rounded-2xl p-6 hover:border-white/30 transition-all flex-1">
+            <h3 class="text-white font-bold text-lg mb-2">Immersive</h3>
+            <p class="text-white/40 text-sm">Scroll-linked transitions and blending.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 03. SECOND SCROLL STAGE -->
+  <section class="relative w-full py-32 md:py-48 flex items-center justify-end px-8 md:px-24 z-10 pointer-events-none">
+    <div class="w-full max-w-7xl mx-auto flex justify-end">
+      <div class="w-full md:w-1/2 flex flex-col items-start gap-6 pointer-events-auto md:pr-16">
+        <h2 class="text-5xl md:text-7xl font-black tracking-tight text-white mb-4">
+          NEXT-GEN <br /> <span class="text-[#2e8eff]">FABRIC.</span>
+        </h2>
+        <p class="text-xl text-white/50 font-medium leading-relaxed max-w-md">
+          Our 3D models showcase every stitch, weave, and texture. Feel the weight of the material before you even put it on. Elevating your digital wardrobe.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 w-full">
+          <div class="bg-[#111] border border-white/10 rounded-2xl p-6 hover:border-white/30 transition-all flex-1">
+            <h3 class="text-white font-bold text-lg mb-2">Detailed Textures</h3>
+            <p class="text-white/40 text-sm">4K maps for realistic weaves.</p>
+          </div>
+          <div class="bg-[#111] border border-white/10 rounded-2xl p-6 hover:border-white/30 transition-all flex-1">
+            <h3 class="text-white font-bold text-lg mb-2">Dynamic Drape</h3>
+            <p class="text-white/40 text-sm">Physics-based material properties.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Icon script -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    lucide.createIcons();
+    // API: /endpoint (Backend logic placeholder)
+    // Event listeners for Login hover (light intensity) handled in script.js
+  </script>
+
+  <!-- 3D Canvas logic -->
+  <script type="module" src="js/script.js"></script>
+</body>
+</html>

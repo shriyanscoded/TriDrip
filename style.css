@@ -1,0 +1,170 @@
+/*
+ * ============================================================
+ * FILE: css/style.css
+ * DESCRIPTION: All custom styles for the Tridrip frontend UI.
+ *   Contains: scrollbar styles, noise background overlay,
+ *   user-profile button component, drip CTA button animations,
+ *   float & shimmer keyframe animations.
+ *
+ * DEPENDENCIES:
+ *   - Tailwind CSS (loaded via CDN in HTML files)
+ *   - Used by: index.html (Landing Page), home.html (Home Page)
+ * ============================================================
+ */
+
+html {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0a0a0a;
+  overflow-x: hidden;
+}
+
+/* ── Premium dark scrollbar ──────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a2a;
+  border-radius: 99px;
+  transition: background 0.2s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3d3d3d;
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #2a2a2a #0a0a0a;
+}
+
+.noise-bg {
+  position: relative;
+}
+
+.noise-bg::before {
+  content: "";
+  position: fixed;
+  inset: -50%;
+  width: 200%;
+  height: 200%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.05;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  z-index: 50;
+}
+
+.user-profile {
+  width: 200px;
+  height: 51px;
+  border-radius: 15px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: linear-gradient(to bottom right, #2e8eff 0%, rgba(46, 142, 255, 0) 30%);
+  background-color: rgba(46, 142, 255, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user-profile:hover,
+.user-profile:focus {
+  background-color: rgba(46, 142, 255, 0.7);
+  box-shadow: 0 0 10px rgba(46, 142, 255, 0.5);
+  outline: none;
+}
+
+.user-profile-inner {
+  width: 196px;
+  height: 47px;
+  border-radius: 13px;
+  background-color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.user-profile-inner svg {
+  width: 27px;
+  height: 27px;
+  fill: #fff;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 0; }
+}
+
+.drip-btn {
+  position: relative;
+  width: 260px;
+  height: 56px;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.08);
+  cursor: pointer;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  color: #f5f5f5;
+  overflow: hidden;
+  transition: box-shadow 0.5s ease-in-out, border-color 0.4s;
+  letter-spacing: 0.06em;
+}
+
+.drip-btn:hover {
+  box-shadow: 0 0 32px 6px rgba(46,142,255,0.22);
+  border-color: rgba(46,142,255,0.35);
+}
+
+.drip-icon {
+  position: absolute;
+  height: 48px;
+  width: 68px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: width 0.5s ease-in-out;
+  z-index: 1;
+}
+
+.drip-text {
+  transform: translateX(72px);
+  transition: opacity 0.4s ease-in-out;
+  white-space: nowrap;
+}
+
+.drip-btn:hover .drip-icon { width: 260px; }
+.drip-btn:hover .drip-text { opacity: 0; }
+.drip-btn:focus { outline: none; }
+.drip-btn:active .drip-icon { transform: scale(0.88); }
