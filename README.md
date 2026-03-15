@@ -16,7 +16,7 @@
 
 ## 🖥️ Live Preview
 
-[TriDrip](https://tridrip.netlify.app/)
+[TriDrip](https://tridrip.vercel.app/)
 
 ---
 
