@@ -56,7 +56,6 @@
 | Styling | CSS Modules |
 | Dev Server | Vite (`localhost:5173`) |
 
-> ⚠️ Update this table to match your actual stack if anything differs.
 
 ---
 
