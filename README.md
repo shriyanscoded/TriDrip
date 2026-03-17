@@ -51,9 +51,9 @@
 | Layer | Tech |
 |-------|------|
 | Frontend Framework | React / Vite |
-| 3D Rendering | Three.js / Custom WebGL |
+| 3D Rendering | Three.js |
 | Animations | GSAP ScrollTrigger (Scrollytelling) |
-| Styling | CSS Modules / Tailwind CSS |
+| Styling | CSS Modules |
 | Dev Server | Vite (`localhost:5173`) |
 
 > ⚠️ Update this table to match your actual stack if anything differs.
